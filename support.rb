@@ -3,9 +3,10 @@ require "selenium-webdriver"
 # Chrome用のドライバを指定
 driver = Selenium::WebDriver.for :chrome
 
-
+#wantedlyにアクセス
 driver.navigate.to "https://www.wantedly.com"
 
+#ログインボタンを探す
 login_button = driver.find_element(:id, "root-login")
 
 
