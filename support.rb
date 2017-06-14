@@ -2,13 +2,14 @@
 require "selenium-webdriver"
 
 # Chrome用のドライバを指定
-#p "Facebookログインするぜ"
-#p "電話番号orメールアドレス"
-#fb_key = gets
-#p "パスワード"
-#fb_pass = gets
-#p fb_pass
-url_ary = [82977 105867 105873 4579 82984 82976]
+p "Facebookログインする"
+p "電話番号orメールアドレス"
+fb_key = gets.chomp
+p "パスワード"
+fb_pass = gets.chomp
+p fb_pass
+
+url_ary = [82977, 105867, 105873, 4579, 82984, 82976]
 #url_ary = [36446, 96762]
 url_ary.each do |url| 
   driver = Selenium::WebDriver.for :chrome
@@ -24,7 +25,7 @@ url_ary.each do |url|
   login_pop.find_element(:class, "wt-ui-button").click
   #facebookの画面と思われる
   login_form = driver.find_element(:id, "login_form")
-  login_form.find_element(:name, "email").send_keys(fb_key.to_s)
+  login_form.find_element(:name, "email").send_keys(fb_key)
   login_form.find_element(:name, "pass").send_keys(fb_pass)
   login_form.find_element(:id, "loginbutton").click
   driver.get "https://www.wantedly.com/projects/#{url}"
